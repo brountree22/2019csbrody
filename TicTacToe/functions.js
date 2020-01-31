@@ -1,20 +1,23 @@
+var i = 2;
 
-
-if (document.getElementById("sp1").click()) {
-
-}
-
-function tic() {
-  document.getElementById("sp1").click(); 
-}
-
-function tac() {
-  document.getElementById("sp1").click(); 
-}
-
-$('.color1').click(
-    function tic (){
-        var color = $(this).css("background-color")
-        $('sp1').css("background-color",color)
-    }
+$('.start').click(
+    i += 1
 )
+
+function assign (player){
+    if (document.getElementById("box").click()) {
+        if ( (i & 1) == 0 ) {
+            player = 1
+            i++
+        }
+        else {
+            player = 2
+            i++
+        }    
+    }
+}
+
+
+$('.box').click(assign(player));
+
+for ($('.box').click; )

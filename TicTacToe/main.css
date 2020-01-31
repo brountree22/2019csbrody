@@ -10,7 +10,6 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 60px; 
-    float: left;
 }
 h2 {
     color: white;
@@ -20,17 +19,30 @@ h2 {
     float: right;
 }
 
-.sp1 {
+.start {
+    height: 30px;
+    width: 90px;
+    background-color: white;
+}
+
+.box {
     height: 100px;
     width: 100px;
     background-color: white;
-    display: inline-block;
+    display: inline-table;
 }
 
+.bigbox {
+    height:320px;
+    width:320px;
+}
+
+/*
 .color1 {
     background-color: blue;
 
 }
+*/
 
 
 
