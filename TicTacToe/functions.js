@@ -20,4 +20,15 @@ function assign (player){
 
 $('.box').click(assign(player));
 
-for ($('.box').click; )
+if (player == 1){
+    //get the html element and put an o in it
+}
+else  {
+    if (player ==2) {
+        //get the html element and put an x in it
+    }
+    else {
+        console.log("something went wrong making it x or o")
+    }
+}
+//do something like make it a loop idk and have it do stuff on the click
