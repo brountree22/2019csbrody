@@ -30,16 +30,18 @@ h2 {
 }
 
 .box {
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
     background-color: white;
-    display: inline-table;
+    display: inline-block;
+    border-left: 10px;
 }
 
 .bigbox {
-    height:320px;
-    width:320px;
+    height:640px;
+    width:640px;
 }
+
 
 /*
 .color1 {

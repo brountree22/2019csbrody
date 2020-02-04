@@ -1,34 +1,58 @@
 var i = 2;
+var player = 0
 
 $('.start').click(
-    i += 1
-)
+    function(){
+        i += 1
+    console.log(i)
+    }
+);
+
+for (e=0;e=0;e=0){
+    if ($('.box').click){
+        console.log("idk")
+    }
+}
 
 function assign (player){
-    if (document.getElementById("box").click()) {
-        if ( (i & 1) == 0 ) {
-            player = 1
+    $(".box").click( 
+        function (){
+        if ( (i % 1) == 0 ) {
+            var player = 1
             i++
+            return player
         }
         else {
-            player = 2
+            var player = 2
             i++
-        }    
+            return player
+        } 
+    }   
+    );
+    console.log(player)
+}
+
+function xoro(thing) {  
+    if (player == 1){
+        document.getElementById(thing).innerHTML = X
+    }
+    else  {
+        if (player ==2) {
+            document.getElementById(thing).innerHTML = O
+        }
+        else {
+            console.log("something went wrong making it x or o")
+        }
     }
 }
 
-
-$('.box').click(assign(player));
-
-if (player == 1){
-    //get the html element and put an o in it
+for (t = 1; t <= 9; t++){
+    $('.box').click(
+    function(){
+        assign(player)
+        xoro($(this))
+        }
+    );
 }
-else  {
-    if (player ==2) {
-        //get the html element and put an x in it
-    }
-    else {
-        console.log("something went wrong making it x or o")
-    }
-}
-//do something like make it a loop idk and have it do stuff on the click
+
+ 
