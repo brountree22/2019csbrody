@@ -19,7 +19,7 @@ h2 {
     float: right;
 }
 
-.start {
+.x {
     height: 30px;
     width: 90px;
     background-color: white;
@@ -35,6 +35,9 @@ h2 {
     background-color: white;
     display: inline-block;
     border-left: 10px;
+    border-bottom: 10px;
+    border-top: 10px;
+    border-right: 10px;
 }
 
 .bigbox {
