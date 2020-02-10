@@ -23,25 +23,49 @@ function assign (player){
     return turn = player;
 }  
 
+/*function clicked(thing){
+    if (thing.indexOf("O") >= 0){
+        return true;
+    }
+    else if (thing.indexOf("X") >= 0){
+        return true;
+    }
+    else if (thing.indexOf("X") == -1){
+        return false;
+    }
+    else if (thing.indexOf("O") == -1){
+        return false;
+    }
+    else {
+        console.log("oops");
+    }
+}*/
 
 function xoro(thing) { 
     console.log(turn);
-    //var id = thing.att("id") 
+    //var id = thing.att("id")
     if (turn == "o"){
-        $(thing).text("O");
+        if (thing.attr("clicke") == "false") {
+            $(thing).text("O");
+            thing.attr("clicke","true")
         console.log("o worked");
+        }
+        else {console.log("already clicked")}
     }
     else  {
         if (turn == "x") {
-            $(thing).text("X");
+            if (thing.attr("clicke") == "false") {
+                $(thing).text("X");
+                thing.attr("clicke","true")
             console.log("X worked");
+            }
+            else {console.log("already clicked")}
         }
         else {
             console.log("something went wrong making it x or o");
         }
     }
 }
-
 
 //for (var t = 1; t <= 9; t++){
 $('.box').click(    
