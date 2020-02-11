@@ -2,9 +2,9 @@ var i = 5;
 var player = "";
 var turn = player;
 var t = 0;
-var board = [document.getElementById('.1'),document.getElementById('.2'),document.getElementById('.3'),
-             document.getElementById('.4'),document.getElementById('.5'),document.getElementById('.6'),
-             document.getElementById('.7'),document.getElementById('.8'),document.getElementById('.9')];
+var board = [$('#0'),$('#1'),$('#2'),
+             $('#3'),$('#4'),$('#5'),
+             $('#6'),$('#7'),$('#8')];
 
 $('.x').click(
     function(){
@@ -49,8 +49,9 @@ function xoro(thing) {
     //var id = thing.att("id")
     if (turn == "o"){
         if (thing.attr("clicke") == "false") {
-            $(thing).text(" O");
+            $(thing).text("O");
             thing.attr("clicke","true")
+            thing.attr("p","0")
         console.log("o worked");
         }
         else {console.log("already clicked");i--}
@@ -58,8 +59,9 @@ function xoro(thing) {
     else  {
         if (turn == "x") {
             if (thing.attr("clicke") == "false") {
-                $(thing).text(" X");
-                thing.attr("clicke","true")
+                $(thing).text("X");
+                thing.attr("clicke","true");
+                thing.attr("p","1")
             console.log("X worked");
             }
             else {console.log("already clicked");i--}
@@ -75,23 +77,23 @@ $('.box').click(
 function(){
     assign(player);
     xoro($(this));
-    console.log(acrosstop)
-    checkWin();
+    //console.log(acrosstop)
+    checkWin(this);
     t++
     }
 )
 
-var acrosstop = board[0] = board[1] + board[2];
-var acrossmiddle = board[3] + board[4] + board[5];
-var acrossbottom = board[6] + board[7] + board[8];
+var acrosstop = $("[row = 1]");
+var acrossmiddle = $("[row = 2]");
+var acrossbottom = $("[row = 3]");
+var downone = $("[collumn = 1]");
+var downtwo = $("[collumn = 2");
+var downthree = $("[collumn = 3]");
 
-function checkWin() {
-    if (acrosstop = "ooo"){
-        alert("O wins!")
-    }
-    else{
-        console.log(acrosstop);
-    }
+function checkWin(boxclicked) {
+    var rowclicked = $(boxclicked).attr("row")
+
+    console.log(rowclicked)
 }
 
 
