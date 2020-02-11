@@ -3,6 +3,7 @@
 body {
     background-image: url("https://www.sws-yachts.com/wp-content/uploads/2016/05/SWS-Windfall-Valletta-Aerial-017_1920x900.jpg");
     resize: both;
+    background-size: 100% 100%;
 }
 
 h1 {

@@ -2,7 +2,9 @@ var i = 5;
 var player = "";
 var turn = player;
 var t = 0;
-var board = [('.1'),('.2'),('.3'),('.4'),('.5'),('.6'),('.7'),('.8'),('.9')];
+var board = [document.getElementById('.1'),document.getElementById('.2'),document.getElementById('.3'),
+             document.getElementById('.4'),document.getElementById('.5'),document.getElementById('.6'),
+             document.getElementById('.7'),document.getElementById('.8'),document.getElementById('.9')];
 
 $('.x').click(
     function(){
@@ -73,19 +75,22 @@ $('.box').click(
 function(){
     assign(player);
     xoro($(this));
+    console.log(acrosstop)
     checkWin();
     t++
     }
 )
 
-var metone = board[0] + board[3] + board[6];
+var acrosstop = board[0] = board[1] + board[2];
+var acrossmiddle = board[3] + board[4] + board[5];
+var acrossbottom = board[6] + board[7] + board[8];
 
 function checkWin() {
-    if (metone.indexOf("x") == 3){
-        alert("X wins!")
+    if (acrosstop = "ooo"){
+        alert("O wins!")
     }
     else{
-        console.log("metone" + metone);
+        console.log(acrosstop);
     }
 }
 
