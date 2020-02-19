@@ -2,14 +2,14 @@ var i = 5;
 var player = "";
 var turn = player;
 var t = 0;
-var board = [$('#0'),$('#1'),$('#2'),
+/*var board = [$('#0'),$('#1'),$('#2'),
              $('#3'),$('#4'),$('#5'),
              $('#6'),$('#7'),$('#8')];
+             */
 
 $('.x').click(
     function(){
         i += 1;
-    console.log(i);
     }
 );
 
@@ -22,30 +22,10 @@ function assign (player){
         player = "o";
         i++;     
     }
-    console.log(player);
     return turn = player;
 }  
 
-/*function clicked(thing){
-    if (thing.indexOf("O") >= 0){
-        return true;
-    }
-    else if (thing.indexOf("X") >= 0){
-        return true;
-    }
-    else if (thing.indexOf("X") == -1){
-        return false;
-    }
-    else if (thing.indexOf("O") == -1){
-        return false;
-    }
-    else {
-        console.log("oops");
-    }
-}*/
-
 function xoro(thing) { 
-    console.log(turn);
     //var id = thing.att("id")
     if (turn == "o"){
         if (thing.attr("clicke") == "false") {
@@ -86,16 +66,24 @@ function(){
 var acrosstop = $("[row = 1]");
 var acrossmiddle = $("[row = 2]");
 var acrossbottom = $("[row = 3]");
-var downone = $("[collumn = 1]");
-var downtwo = $("[collumn = 2");
-var downthree = $("[collumn = 3]");
+var downa = $("[collumn = a]");
+var downb = $("[collumn = b]");
+var downc = $("[collumn = c]");
 
 function checkWin(boxclicked) {
-    var rowclicked = $(boxclicked).attr("row")
+    var rowclicked = $(boxclicked).attr("row");
+    var checkingrow = $("div[row="+rowclicked+"]");
+    $(checkingrow).val()
 
-    console.log(rowclicked)
+// I want it to select all of the <div> elements with attributes equal to the value of the variable rowclicked. (ln 75)
+// Then, I want it to return an array of each selected option. (ln 76)
+// If the returned array is equal to a winning array, 
+// The game is won.
+
+    console.log(rowclicked);
 }
 
 
 
- 
+ // https://api.jquery.com/val/
+ // https://www.tutorialspoint.com/How-to-use-JavaScript-variables-in-jQuery-selectors
