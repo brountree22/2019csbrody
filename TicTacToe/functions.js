@@ -69,11 +69,26 @@ var acrossbottom = $("[row = 3]");
 var downa = $("[collumn = a]");
 var downb = $("[collumn = b]");
 var downc = $("[collumn = c]");
+var checkingrow = [];
 
 function checkWin(boxclicked) {
     var rowclicked = $(boxclicked).attr("row");
-    var checkingrow = $("div[row="+rowclicked+"]");
-    $(checkingrow).val()
+    var wplayer = $(boxclicked).attr("p");
+    checkingrow = $("div[row="+rowclicked+"]").attr("clicke");
+        if (wplayer == 0){
+            var str = checkingrow[0] + checkingrow[1] + checkingrow[2]
+            if (str == "truetruetrue"){
+                alert("Player O Wins!")
+            }
+        }
+        else if (wplayer == 1){
+            //player x checking
+        }
+        else {
+            console.log("not clicked yet");
+        }
+    
+    //var yesno = $(checkingrow).val();
 
 // I want it to select all of the <div> elements with attributes equal to the value of the variable rowclicked. (ln 75)
 // Then, I want it to return an array of each selected option. (ln 76)
@@ -81,9 +96,9 @@ function checkWin(boxclicked) {
 // The game is won.
 
     console.log(rowclicked);
+    console.log(checkingrow);
+    //console.log(yesno);
 }
-
-
 
  // https://api.jquery.com/val/
  // https://www.tutorialspoint.com/How-to-use-JavaScript-variables-in-jQuery-selectors
