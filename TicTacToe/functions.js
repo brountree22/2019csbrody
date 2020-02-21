@@ -30,7 +30,7 @@ function xoro(thing) {
     if (turn == "o"){
         if (thing.attr("clicke") == "false") {
             $(thing).text("O");
-            thing.attr("clicke","true")
+            thing.attr("clicke","o")
             thing.attr("p","0")
         console.log("o worked");
         }
@@ -40,7 +40,7 @@ function xoro(thing) {
         if (turn == "x") {
             if (thing.attr("clicke") == "false") {
                 $(thing).text("X");
-                thing.attr("clicke","true");
+                thing.attr("clicke","x");
                 thing.attr("p","1")
             console.log("X worked");
             }
@@ -63,27 +63,49 @@ function(){
     }
 )
 
+/*
 var acrosstop = $("[row = 1]");
 var acrossmiddle = $("[row = 2]");
 var acrossbottom = $("[row = 3]");
 var downa = $("[collumn = a]");
 var downb = $("[collumn = b]");
 var downc = $("[collumn = c]");
-var checkingrow = [];
+*/
+
+var boxing = [];
 
 function checkWin(boxclicked) {
     var rowclicked = $(boxclicked).attr("row");
+    var collumnclicked = $(boxclicked).attr("collumn")
     var wplayer = $(boxclicked).attr("p");
-    checkingrow = $("div[row="+rowclicked+"]").attr("clicke");
+    var roww = $("[row="+rowclicked+"][p="+wplayer+"]");
+    var coll = $("[collumn="+collumnclicked+"][p="+wplayer+"]");
+    console.log(rowclicked,collumnclicked,wplayer)
+    console.log(roww.length)
+    if (roww.length == 3){
+        alert("Player " + wplayer + " Wins!")
+    }
+    if (coll.length == 3){
+        alert("Player " + wplayer + " Wins!")
+    }
+}
+    
+    /*checkingrow = ("div[row="+rowclicked+"]").attr("clicke");
+    var str = $(checkingrow[0]).text() + $(checkingrow[1]).text() + $(checkingrow[2]).text();
+    console.log(checkingrow)
+    console.log(str)
         if (wplayer == 0){
-            var str = checkingrow[0] + checkingrow[1] + checkingrow[2]
-            if (str == "truetruetrue"){
-                alert("Player O Wins!")
+            if (str == "ooo"){
+                alert("Player O Wins!");
             }
+            else {return}
         }
         else if (wplayer == 1){
             //player x checking
-        }
+        }   
+            if(str == "xxx"){
+                alert("Player X Wins!");
+            }
         else {
             console.log("not clicked yet");
         }
@@ -97,8 +119,8 @@ function checkWin(boxclicked) {
 
     console.log(rowclicked);
     console.log(checkingrow);
-    //console.log(yesno);
-}
+    //console.log(yesno);*/
+
 
  // https://api.jquery.com/val/
  // https://www.tutorialspoint.com/How-to-use-JavaScript-variables-in-jQuery-selectors
