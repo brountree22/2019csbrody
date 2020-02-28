@@ -2,6 +2,7 @@ var i = 5;
 var player = "";
 var turn = player;
 var t = 0;
+var middleclicked = false;
 
 $('.x').click(
     function(){
@@ -56,24 +57,48 @@ function(){
     }
 )
 
-var boxing = [];
-
 function checkWin(boxclicked) {
     var rowclicked = $(boxclicked).attr("row");
-    var collumnclicked = $(boxclicked).attr("collumn")
+    var collumnclicked = $(boxclicked).attr("collumn");
+    var diagclicked = $(boxclicked).attr("diag")
+    if (diagclicked == "3"){
+        middleclicked = true;
+    }
     var wplayer = $(boxclicked).attr("p");
     var roww = $("[row="+rowclicked+"][p="+wplayer+"]");
     var coll = $("[collumn="+collumnclicked+"][p="+wplayer+"]");
-    console.log(rowclicked,collumnclicked,wplayer)
-    console.log(roww.length)
-    if (roww.length == 3){
-        alert("Player " + wplayer + " Wins!")
+    var diag = $("[diag="+diagclicked+"][p="+wplayer+"]");
+    console.log(rowclicked,collumnclicked,wplayer);
+    console.log(roww.length);
+    if ((roww.length == 3) || (coll.length == 3) || ((diag.length >= 2) & (middleclicked == true))) {
+        console.log("Win activated");
+        document.getElementsByClassName(".modal-body").innerHTML = "Player " + wplayer + " Wins!";
+        $("#winmodal").addClass("md-show");
+        $(".btn btn-default").click(
+            $("#winmodal").removeClass("md-show")
+            console.log()
+            )
     }
-    if (coll.length == 3){
-        alert("Player " + wplayer + " Wins!")
-    }
-}
 
-//use modals
-    
-    
+   /* if (roww.length == 3){
+        document.getElementsByClassName(".modal-body").innerHTML = "Player " + wplayer + " Wins!";
+        $("#winmodal").addClass("md-show");
+        $(".btn btn-default").click(
+        ("#winmodal").removeClass("md-show")
+        )
+    }
+    else if (coll.length == 3){
+        document.getElementsByClassName(".modal-body").innerHTML = "Player " + wplayer + " Wins!";
+        $("#winmodal").addClass("md-show");
+        $(".btn btn-default").click(
+        ("#winmodal").removeClass("md-show")
+        )
+    }
+    else if (diag.length == 3){
+        document.getElementsByClassName(".modal-body").innerHTML = "Player " + wplayer + " Wins!";
+        $("#winmodal").addClass("md-show");
+        $(".btn btn-default").click(
+        ("#winmodal").removeClass("md-show")
+        )
+    }*/
+}   
