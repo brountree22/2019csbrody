@@ -3,6 +3,7 @@ var player = "";
 var turn = player;
 var t = 0;
 var middleclicked = false;
+var pplayer = "";
 
 $('.x').click(
     function(){
@@ -13,11 +14,13 @@ $('.x').click(
 function assign (player){   
     if ( (i % 2) == 0 ) {
         player = "x";
-        i++;  
+        i++; 
+        //t++ 
     }
     else {
         player = "o";
         i++;     
+        //t++
     }
     return turn = player;
 }  
@@ -48,14 +51,11 @@ function xoro(thing) {
     }
 }
 
-$('.box').click(    
-function(){
-    assign(player);
-    xoro($(this));
-    checkWin(this);
-    t++
-    }
-)
+/*if (t==8){
+    document.getElementById("texthere").innerHTML = "Tie!";
+        $('#winmodal').modal('show');
+        t = 0;
+}*/
 
 function checkWin(boxclicked) {
     var rowclicked = $(boxclicked).attr("row");
@@ -70,35 +70,27 @@ function checkWin(boxclicked) {
     var diag = $("[diag="+diagclicked+"][p="+wplayer+"]");
     console.log(rowclicked,collumnclicked,wplayer);
     console.log(roww.length);
+    if (wplayer == 1){
+        pplayer = "O";
+    }
+    else if (wplayer = 0){
+        pplayer = "X";
+    }
     if ((roww.length == 3) || (coll.length == 3) || ((diag.length >= 2) & (middleclicked == true))) {
         console.log("Win activated");
-        document.getElementsByClassName(".modal-body").innerHTML = "Player " + wplayer + " Wins!";
-        $("#winmodal").addClass("md-show");
-        $(".btn btn-default").click(
-            $("#winmodal").removeClass("md-show")
-            console.log()
-            )
+        document.getElementById("texthere").innerHTML = "Player " + pplayer + " Wins!";
+        $('#winmodal').modal('show');
+        //t = 0;
     }
+}  
 
-   /* if (roww.length == 3){
-        document.getElementsByClassName(".modal-body").innerHTML = "Player " + wplayer + " Wins!";
-        $("#winmodal").addClass("md-show");
-        $(".btn btn-default").click(
-        ("#winmodal").removeClass("md-show")
-        )
-    }
-    else if (coll.length == 3){
-        document.getElementsByClassName(".modal-body").innerHTML = "Player " + wplayer + " Wins!";
-        $("#winmodal").addClass("md-show");
-        $(".btn btn-default").click(
-        ("#winmodal").removeClass("md-show")
-        )
-    }
-    else if (diag.length == 3){
-        document.getElementsByClassName(".modal-body").innerHTML = "Player " + wplayer + " Wins!";
-        $("#winmodal").addClass("md-show");
-        $(".btn btn-default").click(
-        ("#winmodal").removeClass("md-show")
-        )
+$('.box').click(    
+function(){
+    assign(player);
+    /*if (t == 0){
+        document.getElementById("texthere").innerHTML = "Please select a player to start!";
     }*/
-}   
+    xoro($(this));
+    checkWin(this);
+    }
+)

@@ -1,5 +1,10 @@
 @CHARSET "UTF-8";
 
+html{
+    width: 100%;
+    height: 100%;
+}
+
 body {
     background-image: url("https://www.sws-yachts.com/wp-content/uploads/2016/05/SWS-Windfall-Valletta-Aerial-017_1920x900.jpg");
     resize: both;
@@ -20,7 +25,7 @@ h2 {
     float: right;
 }
 
-.x {
+blah {
     height: 30px;
     width: 90px;
     background-color: white;
