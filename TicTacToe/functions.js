@@ -62,7 +62,7 @@ function checkWin(boxclicked) {
     var collumnclicked = $(boxclicked).attr("collumn");
     var diagclicked = $(boxclicked).attr("diag")
     if (diagclicked == "3"){
-        middleclicked = true;
+        middleclicked = pplayer;
     }
     var wplayer = $(boxclicked).attr("p");
     var roww = $("[row="+rowclicked+"][p="+wplayer+"]");
@@ -76,7 +76,7 @@ function checkWin(boxclicked) {
     else if (wplayer = 0){
         pplayer = "X";
     }
-    if ((roww.length == 3) || (coll.length == 3) || ((diag.length >= 2) & (middleclicked == true))) {
+    if ((roww.length == 3) || (coll.length == 3) || ((diag.length >= 2) & (middleclicked == pplayer))) {
         console.log("Win activated");
         document.getElementById("texthere").innerHTML = "Player " + pplayer + " Wins!";
         $('#winmodal').modal('show');
