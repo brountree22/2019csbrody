@@ -5,22 +5,34 @@ var t = 0;
 var middleclicked = false;
 var pplayer = "";
 
+if (t >= 10){
+    document.getElementById("texthere").innerHTML = "Tie!";
+    $('#winmodal').modal('show');
+}
+
 $('.x').click(
     function(){
         i += 1;
+        t = 1;
     }
 );
+
+$("blah").click(
+    function(){
+        t = 1;
+    } 
+)
 
 function assign (player){   
     if ( (i % 2) == 0 ) {
         player = "x";
         i++; 
-        //t++ 
+        t++; 
     }
     else {
         player = "o";
         i++;     
-        //t++
+        t++;
     }
     return turn = player;
 }  
@@ -51,12 +63,6 @@ function xoro(thing) {
     }
 }
 
-/*if (t==8){
-    document.getElementById("texthere").innerHTML = "Tie!";
-        $('#winmodal').modal('show');
-        t = 0;
-}*/
-
 function checkWin(boxclicked) {
     var rowclicked = $(boxclicked).attr("row");
     var collumnclicked = $(boxclicked).attr("collumn");
@@ -69,28 +75,33 @@ function checkWin(boxclicked) {
     var coll = $("[collumn="+collumnclicked+"][p="+wplayer+"]");
     var diag = $("[diag="+diagclicked+"][p="+wplayer+"]");
     console.log(rowclicked,collumnclicked,wplayer);
-    console.log(roww.length);
-    if (wplayer == 1){
+    if (wplayer == 0){
         pplayer = "O";
     }
-    else if (wplayer = 0){
+    else if (wplayer == 1){
         pplayer = "X";
     }
+    console.log("wplayer = " + wplayer)
+    console.log("pplayer = " + pplayer);
     if ((roww.length == 3) || (coll.length == 3) || ((diag.length >= 2) & (middleclicked == pplayer))) {
         console.log("Win activated");
+        console.log(pplayer);
         document.getElementById("texthere").innerHTML = "Player " + pplayer + " Wins!";
         $('#winmodal').modal('show');
-        //t = 0;
     }
 }  
 
 $('.box').click(    
-function(){
-    assign(player);
-    /*if (t == 0){
-        document.getElementById("texthere").innerHTML = "Please select a player to start!";
-    }*/
-    xoro($(this));
-    checkWin(this);
+    function(){
+        if (t == 0){
+            document.getElementById("texthere").innerHTML = "Please select a player to start!";
+            $('#winmodal').modal('show');
+        }
+        else {
+            assign(player);
+            xoro($(this));
+            checkWin(this);
+        }
+        console.log("t = " + t);
     }
 )
