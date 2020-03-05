@@ -1,9 +1,10 @@
 var i = 5;
 var player = "";
 var turn = player;
-var t = 0;
 var middleclicked = false;
+var t = 0;
 var pplayer = "";
+var middleplayer = -1;
 
 if (t >= 10){
     document.getElementById("texthere").innerHTML = "Tie!";
@@ -67,23 +68,26 @@ function checkWin(boxclicked) {
     var rowclicked = $(boxclicked).attr("row");
     var collumnclicked = $(boxclicked).attr("collumn");
     var diagclicked = $(boxclicked).attr("diag")
-    if (diagclicked == "3"){
-        middleclicked = pplayer;
-    }
     var wplayer = $(boxclicked).attr("p");
     var roww = $("[row="+rowclicked+"][p="+wplayer+"]");
     var coll = $("[collumn="+collumnclicked+"][p="+wplayer+"]");
     var diag = $("[diag="+diagclicked+"][p="+wplayer+"]");
     console.log(rowclicked,collumnclicked,wplayer);
+    if (diagclicked == "3"){
+        middleclicked = true;
+        middleplayer = wplayer;
+        console.log("set");
+    }
     if (wplayer == 0){
         pplayer = "O";
     }
     else if (wplayer == 1){
         pplayer = "X";
     }
-    console.log("wplayer = " + wplayer)
+    console.log("wplayer = " + wplayer);
     console.log("pplayer = " + pplayer);
-    if ((roww.length == 3) || (coll.length == 3) || ((diag.length >= 2) & (middleclicked == pplayer))) {
+    console.log("middleclicked = " + middleclicked);
+    if ((roww.length == 3) || (coll.length == 3) || ((diag.length >= 2) & (middleclicked == true) & (middleplayer == wplayer))) {
         console.log("Win activated");
         console.log(pplayer);
         document.getElementById("texthere").innerHTML = "Player " + pplayer + " Wins!";
