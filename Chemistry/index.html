@@ -3,10 +3,16 @@
     <head>
         <title>Balancing Equations Calculator</title>
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
     </head>
     <body>
         <input type="text" value="some text">
-        <p></p>
+        <form id="myForm" action="comment.php" method="post"> 
+    Element: <input type="text" name="name" /> 
+    Quantity: <textarea name="comment"></textarea> 
+    <input type="submit" value="Done" /> 
+</form>
+        <p id="output"></p>
         <button class="enter">Enter</button>
     </body>
     <script src='functions.js'></script>

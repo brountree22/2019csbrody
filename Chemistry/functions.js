@@ -1,28 +1,18 @@
-public enum element{
-    H();
-    He();
-    Li();
-    Be();
-    B();
-    C();
-    N();
-    O();
-    F();
-
-}
-
 var inputtedEquation = "";
 
-$( "input" ).keyup(
+$( "#myform" ).keyup(
     function(){
         inputtedEquation = $( this ).val();
-    })
+        console.log("yep");
+    }
+)
 
-function findAmounts(inputted) {
-    
+function findAmounts(input) {
+
+    document.getElementById("output").innerHTML = input;
 }
         
-$("enter").click(
+$(".enter").click(
     function(){
         findAmounts(inputtedEquation);
     }
